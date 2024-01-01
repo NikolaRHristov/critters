@@ -8,7 +8,7 @@ export default (predicate) => {
 		const [a, b] = splitFilter(
 			this.selectors,
 			this._other.selectors,
-			predicate,
+			predicate
 		);
 		this.selectors = a;
 		this._other.selectors = b;

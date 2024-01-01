@@ -34,7 +34,7 @@ export default {
 		get() {
 			// Find the first <html> element within the document
 			return this.children.find(
-				(child) => String(child.tagName).toLowerCase() === "html",
+				(child) => String(child.tagName).toLowerCase() === "html"
 			);
 		},
 	},
