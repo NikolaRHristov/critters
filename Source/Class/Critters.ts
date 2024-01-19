@@ -99,7 +99,7 @@ export default class Critters {
 				additionalStylesheets: [],
 				allowRules: [],
 			},
-			options || {}
+			options || {},
 		);
 
 		this.urlFilter = this.options.filter;
@@ -118,10 +118,13 @@ export default class Critters {
 		const fs = this.fs;
 		return new Promise((resolve, reject) => {
 			const callback = (err, data) => {
-				if (err) reject(err);
-				else resolve(data);
+				if (err) {
+					reject(err);
+				} else {
+					resolve(data);
+				}
 			};
-			if (fs && fs.readFile) {
+			if (fs?.readFile) {
 				fs.readFile(filename, callback);
 			} else {
 				readFile(filename, "utf8", callback);
@@ -145,13 +148,13 @@ export default class Critters {
 		// `external:false` skips processing of external sheets
 		if (this.options.external !== false) {
 			const externalSheets = [].slice.call(
-				document.querySelectorAll('link[rel="stylesheet"]')
+				document.querySelectorAll('link[rel="stylesheet"]'),
 			);
 
 			await Promise.all(
 				externalSheets.map((link) =>
-					this.embedLinkedStylesheet(link, document)
-				)
+					this.embedLinkedStylesheet(link, document),
+				),
 			);
 		}
 
@@ -159,7 +162,7 @@ export default class Critters {
 		const styles = this.getAffectedStyleTags(document);
 
 		await Promise.all(
-			styles.map((style) => this.processStyle(style, document))
+			styles.map((style) => this.processStyle(style, document)),
 		);
 
 		if (this.options.mergeStylesheets !== false && styles.length !== 0) {
@@ -169,7 +172,7 @@ export default class Critters {
 		// serialize the document back to HTML and we're done
 		const output = serializeDocument(document);
 		const end = process.hrtime.bigint();
-		this.logger.info("Time " + parseFloat(end - start) / 1000000.0);
+		this.logger.info(`Time ${parseFloat(end - start) / 1000000.0}`);
 		return output;
 	}
 
@@ -190,7 +193,7 @@ export default class Critters {
 		const styles = this.getAffectedStyleTags(document);
 		if (styles.length === 0) {
 			this.logger.warn(
-				"Merging inline stylesheets into a single <style> tag skipped, no inline stylesheets to merge"
+				"Merging inline stylesheets into a single <style> tag skipped, no inline stylesheets to merge",
 			);
 			return;
 		}
@@ -216,7 +219,7 @@ export default class Critters {
 		// CHECK - the output path
 		// path on disk (with output.publicPath removed)
 		let normalizedPath = href.replace(/^\//, "");
-		const pathPrefix = (publicPath || "").replace(/(^\/|\/$)/g, "") + "/";
+		const pathPrefix = `${(publicPath || "").replace(/(^\/|\/$)/g, "")}/`;
 		if (normalizedPath.indexOf(pathPrefix) === 0) {
 			normalizedPath = normalizedPath
 				.substring(pathPrefix.length)
@@ -249,7 +252,7 @@ export default class Critters {
 			const href = style.$$name;
 			style.$$reduce = false;
 			this.logger.info(
-				`\u001b[32mInlined all of ${href} (${sheet.length} was below the threshold of ${this.options.inlineThreshold})\u001b[39m`
+				`\u001b[32mInlined all of ${href} (${sheet.length} was below the threshold of ${this.options.inlineThreshold})\u001b[39m`,
 			);
 			link.remove();
 			return true;
@@ -276,11 +279,13 @@ export default class Critters {
 					sheet,
 					style,
 				]);
-			})
+			}),
 		);
 
 		sources.forEach(([sheet, style]) => {
-			if (!sheet) return;
+			if (!sheet) {
+				return;
+			}
 			style.textContent = sheet;
 			document.head.appendChild(style);
 		});
@@ -329,12 +334,14 @@ export default class Critters {
 		if (lazy) {
 			cssLoaderPreamble = cssLoaderPreamble.replace(
 				"l.href",
-				"l.media='print';l.onload=function(){l.media=m};l.href"
+				"l.media='print';l.onload=function(){l.media=m};l.href",
 			);
 		}
 
 		// Allow disabling any mutation of the stylesheet link:
-		if (preloadMode === false) return;
+		if (preloadMode === false) {
+			return;
+		}
 
 		let noscriptFallback = false;
 
@@ -346,8 +353,8 @@ export default class Critters {
 			if (preloadMode === "js" || preloadMode === "js-lazy") {
 				const script = document.createElement("script");
 				const js = `${cssLoaderPreamble}$loadcss(${JSON.stringify(
-					href
-				)}${lazy ? "," + JSON.stringify(media || "all") : ""})`;
+					href,
+				)}${lazy ? `,${JSON.stringify(media || "all")}` : ""})`;
 				// script.appendChild(document.createTextNode(js));
 				script.textContent = js;
 				link.parentNode.insertBefore(script, link.nextSibling);
@@ -367,7 +374,7 @@ export default class Critters {
 				link.setAttribute("title", "styles");
 				link.setAttribute(
 					"onload",
-					`this.title='';this.rel='stylesheet'`
+					`this.title='';this.rel='stylesheet'`,
 				);
 				noscriptFallback = true;
 			} else if (preloadMode === "swap") {
@@ -376,7 +383,9 @@ export default class Critters {
 			} else {
 				const bodyLink = document.createElement("link");
 				bodyLink.setAttribute("rel", "stylesheet");
-				if (media) bodyLink.setAttribute("media", media);
+				if (media) {
+					bodyLink.setAttribute("media", media);
+				}
 				bodyLink.setAttribute("href", href);
 				document.body.appendChild(bodyLink);
 				style.$$links.push(bodyLink);
@@ -388,7 +397,9 @@ export default class Critters {
 			const noscriptLink = document.createElement("link");
 			noscriptLink.setAttribute("rel", "stylesheet");
 			noscriptLink.setAttribute("href", href);
-			if (media) noscriptLink.setAttribute("media", media);
+			if (media) {
+				noscriptLink.setAttribute("media", media);
+			}
 			noscript.appendChild(noscriptLink);
 			link.parentNode.insertBefore(noscript, link.nextSibling);
 			style.$$links.push(noscript);
@@ -404,14 +415,16 @@ export default class Critters {
 		const name = style.$$name;
 		if (minSize && sheetInverse.length < minSize) {
 			this.logger.info(
-				`\u001b[32mInlined all of ${name} (non-critical external stylesheet would have been ${sheetInverse.length}b, which was below the threshold of ${minSize})\u001b[39m`
+				`\u001b[32mInlined all of ${name} (non-critical external stylesheet would have been ${sheetInverse.length}b, which was below the threshold of ${minSize})\u001b[39m`,
 			);
 			style.textContent = before;
 			// remove any associated external resources/loaders:
 			if (style.$$links) {
 				for (const link of style.$$links) {
 					const parent = link.parentNode;
-					if (parent) parent.removeChild(link);
+					if (parent) {
+						parent.removeChild(link);
+					}
 				}
 			}
 
@@ -425,7 +438,9 @@ export default class Critters {
 	 * Parse the stylesheet within a <style> element, then reduce it to contain only rules used by the document.
 	 */
 	async processStyle(style, document) {
-		if (style.$$reduce === false) return;
+		if (style.$$reduce === false) {
+			return;
+		}
 
 		const name = style.$$name
 			? style.$$name.replace(/^\//, "")
@@ -434,8 +449,12 @@ export default class Critters {
 		const crittersContainer = document.crittersContainer;
 		let keyframesMode = options.keyframes || "critical";
 		// we also accept a boolean value for options.keyframes
-		if (keyframesMode === true) keyframesMode = "all";
-		if (keyframesMode === false) keyframesMode = "none";
+		if (keyframesMode === true) {
+			keyframesMode = "all";
+		}
+		if (keyframesMode === false) {
+			keyframesMode = "none";
+		}
 
 		let sheet = style.textContent;
 
@@ -443,7 +462,9 @@ export default class Critters {
 		const before = sheet;
 
 		// Skip empty stylesheets
-		if (!sheet) return;
+		if (!sheet) {
+			return;
+		}
 
 		const ast = parseStylesheet(sheet);
 		const astInverse = options.pruneSource ? parseStylesheet(sheet) : null;
@@ -471,24 +492,30 @@ export default class Critters {
 					if (comment.startsWith("critters")) {
 						const command = comment.replace(/^critters:/, "");
 						switch (command) {
-							case "include":
+							case "include": {
 								includeNext = true;
 								break;
-							case "exclude":
+							}
+							case "exclude": {
 								excludeNext = true;
 								break;
-							case "include start":
+							}
+							case "include start": {
 								includeAll = true;
 								break;
-							case "include end":
+							}
+							case "include end": {
 								includeAll = false;
 								break;
-							case "exclude start":
+							}
+							case "exclude start": {
 								excludeAll = true;
 								break;
-							case "exclude end":
+							}
+							case "exclude end": {
 								excludeAll = false;
 								break;
+							}
 						}
 					}
 				}
@@ -553,7 +580,7 @@ export default class Critters {
 						try {
 							return crittersContainer.exists(sel);
 						} catch (e) {
-							failedSelectors.push(sel + " -> " + e.message);
+							failedSelectors.push(`${sel} -> ${e.message}`);
 							return false;
 						}
 					});
@@ -581,7 +608,9 @@ export default class Critters {
 								const names = decl.value.split(/\s+/);
 								for (let j = 0; j < names.length; j++) {
 									const name = names[j].trim();
-									if (name) criticalKeyframeNames.push(name);
+									if (name) {
+										criticalKeyframeNames.push(name);
+									}
 								}
 							}
 						}
@@ -594,10 +623,9 @@ export default class Critters {
 				}
 
 				// If there are no remaining rules, remove the whole rule:
-				const rules =
-					rule.nodes && rule.nodes.filter((rule) => !rule.$$remove);
+				const rules = rule.nodes?.filter((rule) => !rule.$$remove);
 				return !rules || rules.length !== 0;
-			})
+			}),
 		);
 
 		if (failedSelectors.length !== 0) {
@@ -605,8 +633,8 @@ export default class Critters {
 				`${
 					failedSelectors.length
 				} rules skipped due to selector errors:\n  ${failedSelectors.join(
-					"\n  "
-				)}`
+					"\n  ",
+				)}`,
 			);
 		}
 
@@ -638,13 +666,14 @@ export default class Critters {
 
 			// prune @font-face rules
 			if (rule.type === "atrule" && rule.name === "font-face") {
-				let family, src;
+				let family;
+				let src;
 				for (let i = 0; i < rule.nodes.length; i++) {
 					const decl = rule.nodes[i];
 					if (decl.prop === "src") {
 						// @todo parse this properly and generate multiple preloads with type="font/woff2" etc
 						src = (decl.value.match(
-							/url\s*\(\s*(['"]?)(.+?)\1\s*\)/
+							/url\s*\(\s*(['"]?)(.+?)\1\s*\)/,
 						) || [])[2];
 					} else if (decl.prop === "font-family") {
 						family = decl.value;
@@ -698,7 +727,7 @@ export default class Critters {
 			styleInlinedCompletely = this.pruneSource(
 				style,
 				before,
-				sheetInverse
+				sheetInverse,
 			);
 
 			if (styleInlinedCompletely) {
@@ -718,10 +747,10 @@ export default class Critters {
 		const percent = ((sheet.length / before.length) * 100) | 0;
 		this.logger.info(
 			`\u001b[32mInlined ${prettyBytes(
-				sheet.length
+				sheet.length,
 			)} (${percent}% of original ${prettyBytes(
-				before.length
-			)}) of ${name}${afterText}.\u001b[39m`
+				before.length,
+			)}) of ${name}${afterText}.\u001b[39m`,
 		);
 	}
 }

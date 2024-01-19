@@ -19,7 +19,9 @@ export default {
 	className: reflectedProperty("class"),
 
 	insertBefore(child, referenceNode) {
-		if (!referenceNode) return this.appendChild(child);
+		if (!referenceNode) {
+			return this.appendChild(child);
+		}
 		DomUtils.prepend(referenceNode, child);
 		return child;
 	},
@@ -49,8 +51,12 @@ export default {
 	},
 
 	setAttribute(name, value) {
-		if (this.attribs == null) this.attribs = {};
-		if (value == null) value = "";
+		if (this.attribs == null) {
+			this.attribs = {};
+		}
+		if (value == null) {
+			value = "";
+		}
 		this.attribs[name] = value;
 	},
 
@@ -61,7 +67,7 @@ export default {
 	},
 
 	getAttribute(name) {
-		return this.attribs != null && this.attribs[name];
+		return this.attribs?.[name];
 	},
 
 	hasAttribute(name) {
@@ -70,7 +76,9 @@ export default {
 
 	getAttributeNode(name) {
 		const value = this.getAttribute(name);
-		if (value != null) return { specified: true, value };
+		if (value != null) {
+			return { specified: true, value };
+		}
 	},
 
 	exists(sel) {

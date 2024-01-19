@@ -12,7 +12,7 @@ export default (_Object, Property) => {
 		Object.defineProperty(
 			_Object,
 			i,
-			typeof value === "function" ? { value } : value
+			typeof value === "function" ? { value } : value,
 		);
 	}
 };

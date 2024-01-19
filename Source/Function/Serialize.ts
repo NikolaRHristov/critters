@@ -20,7 +20,9 @@ export default (AST, Option) => {
 		}
 
 		// Simple minification logic
-		if (node?.type === "comment") return;
+		if (node?.type === "comment") {
+			return;
+		}
 
 		if (node?.type === "decl") {
 			const prefix = node.prop + node.raws.between;
@@ -31,7 +33,7 @@ export default (AST, Option) => {
 
 		if (type === "start") {
 			if (node.type === "rule" && node.selectors) {
-				cssStr += node.selectors.join(",") + "{";
+				cssStr += `${node.selectors.join(",")}{`;
 			} else {
 				cssStr += result.replace(/\s\{$/, "{");
 			}
