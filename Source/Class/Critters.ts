@@ -172,7 +172,7 @@ export default class Critters {
 		// serialize the document back to HTML and we're done
 		const output = serializeDocument(document);
 		const end = process.hrtime.bigint();
-		this.logger.info(`Time ${parseFloat(end - start) / 1000000.0}`);
+		this.logger.info(`Time ${Number.parseFloat(end - start) / 1000000.0}`);
 		return output;
 	}
 

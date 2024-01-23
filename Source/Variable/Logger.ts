@@ -2,7 +2,7 @@
  * @module Utility
  *
  */
-export default ({
+export default {
 	Trace: (Message) => {
 		console.trace(Message);
 	},
@@ -24,6 +24,6 @@ export default ({
 	},
 
 	Silent: () => ({}),
-} satisfies Type as Type);
+} satisfies Type as Type;
 
 import type Type from "../Interface/Logger.js";
