@@ -10,5 +10,5 @@
  * @param {String} stylesheet
  * @returns {css.Stylesheet} ast
  */
-declare const _default: (Stylesheet: any) => Promise<import("postcss/lib/root").default>;
+declare const _default: (Stylesheet: any) => Promise<import("postcss").Root>;
 export default _default;
