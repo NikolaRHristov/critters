@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/NikolaRHristov/critters/main/.github/Logo.png" width="240" height="240" alt="critters">
-  <h1 align="center">Nikola R. Hristov's Critters</h1>
+  <h1 align="center">Playform's Critters</h1>
 </p>
 
 > Critters is a plugin that inlines your app's [critical CSS] and lazy-loads the
