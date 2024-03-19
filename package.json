@@ -28,6 +28,7 @@
 	"main": "./Target/Class/Critters.js",
 	"types": "./Target/Class/Critters.d.ts",
 	"scripts": {
+		"Document": "TypeScriptDocument 'Source/**/*.ts'",
 		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'"
 	},
 	"dependencies": {
@@ -41,6 +42,7 @@
 	},
 	"devDependencies": {
 		"jsdom": "24.0.0",
+		"typescript-document": "0.0.2",
 		"typescript-esbuild": "0.4.3"
 	},
 	"publishConfig": {
