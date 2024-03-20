@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/NikolaRHristov/critters/main/.github/Logo.png" width="240" height="240" alt="critters">
+  <img src="https://raw.githubusercontent.com/Playform/Critters/main/.github/Logo.png" width="240" height="240" alt="critters">
   <h1 align="center">Playform's Critters</h1>
 </p>
 
 > Critters is a plugin that inlines your app's [critical CSS] and lazy-loads the
 > rest.
 
-## @nikolarhristov/critters [![npm](https://img.shields.io/npm/v/@nikolarhristov/critters.svg)](https://www.npmjs.org/package/@nikolarhristov/critters)
+## @playform/critters [![npm](https://img.shields.io/npm/v/@playform/critters.svg)](https://www.npmjs.org/package/@playform/critters)
 
 It's a little different from [other options](#similar-libraries), because it
 **doesn't use a headless browser** to render content. This tradeoff allows
@@ -34,19 +34,19 @@ Applications.
 First, install Critters as a development dependency:
 
 ```sh
-npm i -D @nikolarhristov/critters
+npm i -D @playform/critters
 ```
 
 or
 
 ```sh
-yarn add -D @nikolarhristov/critters
+yarn add -D @playform/critters
 ```
 
 ## Simple Example
 
 ```js
-import Critters from "@nikolarhristov/critters";
+import Critters from "@playform/critters";
 
 const critters = new Critters({
 	// optional configuration (see below)

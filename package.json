@@ -1,5 +1,5 @@
 {
-	"name": "@nikolarhristov/critters",
+	"name": "@playform/critters",
 	"version": "0.0.1",
 	"private": false,
 	"description": "🦔 Inline critical CSS and lazy-load the rest.",
