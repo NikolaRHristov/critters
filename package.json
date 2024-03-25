@@ -10,19 +10,19 @@
 		"critters",
 		"performance"
 	],
-	"homepage": "https://github.com/Playform/Critters#readme",
+	"homepage": "HTTPS://GitHub.Com/Playform/Critters#readme",
 	"bugs": {
-		"url": "https://github.com/Playform/Critters/issues"
+		"url": "HTTPS://GitHub.Com/Playform/Critters/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Playform/Critters.git"
+		"url": "git+HTTPS://GitHub.Com/Playform/Critters.git"
 	},
 	"license": "Apache-2.0",
 	"author": {
 		"name": "Playform",
 		"email": "Hello@Playform.Cloud",
-		"url": "https://playform.cloud"
+		"url": "HTTPS://Playform.Cloud"
 	},
 	"type": "module",
 	"main": "./Target/Class/Critters.js",
