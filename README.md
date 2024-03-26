@@ -6,7 +6,7 @@
 > Critters is a plugin that inlines your app's [critical CSS] and lazy-loads the
 > rest.
 
-## @playform/critters [![npm](https://IMG.Shields.IO/npm/v/@playform/critters.svg)](https://www.npmjs.org/package/@playform/critters)
+## @playform/critters [![npm](https://img.shields.io/npm/v/@playform/critters.svg)](https://www.npmjs.org/package/@playform/critters)
 
 It's a little different from [other options](#similar-libraries), because it
 **doesn't use a headless browser** to render content. This tradeoff allows

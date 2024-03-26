@@ -42,8 +42,8 @@
 	},
 	"devDependencies": {
 		"jsdom": "24.0.0",
-		"typescript-document": "0.0.5",
-		"typescript-esbuild": "0.4.5"
+		"typescript-document": "0.0.6",
+		"typescript-esbuild": "0.4.6"
 	},
 	"publishConfig": {
 		"access": "public"
