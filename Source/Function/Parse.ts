@@ -6,7 +6,7 @@
 /**
  * Parse a textual CSS Stylesheet into a Stylesheet instance.
  * Stylesheet is a mutable postcss AST with format similar to CSSOM.
- * @see HTTPS://GitHub.Com/postcss/postcss/
+ * @see https://github.com/postcss/postcss/
  * @private
  * @param {String} stylesheet
  * @returns {css.Stylesheet} ast
