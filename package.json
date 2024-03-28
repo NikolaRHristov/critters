@@ -42,11 +42,7 @@
 	},
 	"devDependencies": {
 		"jsdom": "24.0.0",
-<<<<<<< HEAD
 		"typescript-document": "0.0.7",
-=======
-		"typescript-document": "0.0.6",
->>>>>>> f98a70e1ef7d340cf259c93e3907bfe6deb671be
 		"typescript-esbuild": "0.4.9"
 	},
 	"publishConfig": {
