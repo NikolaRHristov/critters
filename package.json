@@ -2,7 +2,7 @@
 	"name": "@playform/critters",
 	"version": "0.0.1",
 	"private": false,
-	"description": "🦔  Inline critical CSS and lazy-load the rest.",
+	"description": "🦔 Inline critical CSS and lazy-load the rest.",
 	"keywords": [
 		"critical css",
 		"inline css",
@@ -42,8 +42,8 @@
 	},
 	"devDependencies": {
 		"jsdom": "24.0.0",
-		"typescript-document": "0.0.7",
-		"typescript-esbuild": "0.4.9"
+		"typescript-document": "0.0.8",
+		"typescript-esbuild": "0.4.10"
 	},
 	"publishConfig": {
 		"access": "public"
