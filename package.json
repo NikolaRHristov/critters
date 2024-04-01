@@ -42,8 +42,10 @@
 	},
 	"devDependencies": {
 		"jsdom": "24.0.0",
-		"typescript-document": "0.0.8",
-		"typescript-esbuild": "0.4.10"
+		"@playform/build": "0.0.1"
+	},
+	"optionalDependencies": {
+		"@playform/document": "0.0.2"
 	},
 	"publishConfig": {
 		"access": "public"
