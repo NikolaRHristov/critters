@@ -6,7 +6,7 @@
 > Critters is a plugin that inlines your app's [critical CSS] and lazy-loads the
 > rest.
 
-## @playform/inline [![npm](https://img.shields.io/npm/v/@playform/inline.svg)](https://www.npmjs.org/package/@playform/inline)
+## @playform/critters [![npm](https://img.shields.io/npm/v/@playform/critters.svg)](https://www.npmjs.org/package/@playform/critters)
 
 It's a little different from [other options](#similar-libraries), because it
 **doesn't use a headless browser** to render content. This tradeoff allows
@@ -34,19 +34,19 @@ Applications.
 First, install Critters as a development dependency:
 
 ```sh
-npm i -D @playform/inline
+npm i -D @playform/critters
 ```
 
 or
 
 ```sh
-yarn add -D @playform/inline
+yarn add -D @playform/critters
 ```
 
 ## Simple Example
 
 ```js
-import Critters from "@playform/inline";
+import Critters from "@playform/critters";
 
 const critters = new Critters({
 	// optional configuration (see below)
