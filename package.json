@@ -28,8 +28,8 @@
 	"main": "./Target/Class/Critters.js",
 	"types": "./Target/Class/Critters.d.ts",
 	"scripts": {
-		"Document": "TypeScriptDocument 'Source/**/*.ts'",
-		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'"
+		"Document": "Document 'Source/**/*.ts'",
+		"prepublishOnly": "Build 'Source/**/*.ts'"
 	},
 	"dependencies": {
 		"chalk": "5.3.0",
@@ -41,7 +41,7 @@
 		"pretty-bytes": "6.1.1"
 	},
 	"devDependencies": {
-		"@playform/build": "0.0.1",
+		"@playform/build": "0.0.2",
 		"jsdom": "24.0.0"
 	},
 	"optionalDependencies": {
