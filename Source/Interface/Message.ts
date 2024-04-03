@@ -2,7 +2,7 @@
  * @module Utility
  *
  */
-export default interface Type {
+export default interface Interface {
 	(Message: Message): void;
 }
 
