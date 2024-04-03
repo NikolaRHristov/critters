@@ -29,7 +29,7 @@
 	"types": "./Target/Class/Critters.d.ts",
 	"scripts": {
 		"Document": "Document 'Source/**/*.ts'",
-		"prepublishOnly": "Build 'Source/**/*.ts'"
+		"Build": "Build 'Source/**/*.ts'"
 	},
 	"dependencies": {
 		"chalk": "5.3.0",
