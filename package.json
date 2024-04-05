@@ -28,6 +28,7 @@
 	"main": "./Target/Class/Critters.js",
 	"types": "./Target/Class/Critters.d.ts",
 	"scripts": {
+		"Document": "Document 'Source/**/*.ts'",
 		"prepublishOnly": "Build 'Source/**/*.ts'"
 	},
 	"dependencies": {
@@ -41,6 +42,7 @@
 	},
 	"devDependencies": {
 		"@playform/build": "0.0.5",
+		"@playform/document": "0.0.6",
 		"jsdom": "24.0.0"
 	},
 	"publishConfig": {
