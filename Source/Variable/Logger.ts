@@ -26,4 +26,4 @@ export default {
 	Silent: () => ({}),
 } satisfies Type as Type;
 
-import type Type from "../Interface/Logger.js";
+import type Type from "@Interface/Logger.js";
