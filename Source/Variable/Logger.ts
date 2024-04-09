@@ -24,6 +24,8 @@ export default {
 	},
 
 	Silent: () => ({}),
-} satisfies Type as Type;
+} satisfies Interface as Interface;
 
-import type Type from "@Interface/Logger.js";
+import type Interface from "@Interface/Logger.js";
+
+export const { default: chalk } = await import("chalk");
