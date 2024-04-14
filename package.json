@@ -16,13 +16,13 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Playform/Critters.git"
+		"url": "git+HTTPS://github.com/Playform/Critters.git"
 	},
 	"license": "Apache-2.0",
 	"author": {
-		"name": "Playform",
-		"email": "hello@playform.cloud",
-		"url": "https://playform.cloud"
+		"name": "Source/Open",
+		"email": "Source/Open@Playform.Cloud",
+		"url": "HTTPS://Playform.Cloud"
 	},
 	"type": "module",
 	"main": "./Target/Class/Critters.js",
