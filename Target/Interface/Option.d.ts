@@ -1,4 +1,4 @@
-export default interface Type {
+export default interface Interface {
     path?: string;
     publicPath?: string;
     external?: boolean;
@@ -18,4 +18,4 @@ export default interface Type {
     reduceInlineStyles?: boolean;
     logger?: Logger;
 }
-import type Logger from "../Interface/Logger.js";
+import type Logger from "@Interface/Logger.js";

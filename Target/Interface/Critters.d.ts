@@ -1,7 +1,7 @@
 /**
  * @module Critters
  */
-export default interface Type {
+export default interface Interface {
     /**
      * Process an HTML document to inline critical CSS from its stylesheets.
      * @param {string} html String containing a full HTML document to be parsed.

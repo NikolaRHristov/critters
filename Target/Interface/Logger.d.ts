@@ -2,7 +2,7 @@
  * @module Utility
  *
  */
-export default interface Type {
+export default interface Interface {
     Trace?: Message;
     Debug?: Message;
     Info?: Message;
@@ -10,4 +10,4 @@ export default interface Type {
     Error?: Message;
     Silent?: Message;
 }
-import type Message from "./Message.js";
+import type Message from "@Interface/Message.js";

@@ -1,1 +1,1 @@
-var o={Trace:e=>{console.trace(e)},Debug:e=>{console.debug(e)},Warn:e=>{console.warn(chalk.yellow(e))},Error:e=>{console.error(chalk.bold.red(e))},Info:e=>{console.info(chalk.bold.blue(e))},Silent:()=>({})};export{o as default};
+var r={Trace:e=>{console.trace(e)},Debug:e=>{console.debug(e)},Warn:e=>{console.warn(o.yellow(e))},Error:e=>{console.error(o.bold.red(e))},Info:e=>{console.info(o.bold.blue(e))},Silent:()=>({})};const{default:o}=await import("chalk");export{o as chalk,r as default};

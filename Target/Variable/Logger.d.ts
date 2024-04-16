@@ -2,6 +2,7 @@
  * @module Utility
  *
  */
-declare const _default: Type;
+declare const _default: Interface;
 export default _default;
-import type Type from "../Interface/Logger.js";
+import type Interface from "@Interface/Logger.js";
+export declare const chalk: import("chalk").ChalkInstance;
