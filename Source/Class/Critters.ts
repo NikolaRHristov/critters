@@ -237,7 +237,7 @@ export default class Critters {
 
 		try {
 			sheet = await this.readFile(filename);
-		} catch (e) {
+		} catch (_Error) {
 			this.logger.warn(`Unable to locate stylesheet: ${filename}`);
 		}
 
@@ -579,7 +579,7 @@ export default class Critters {
 
 						try {
 							return crittersContainer.exists(sel);
-						} catch (e) {
+						} catch (_Error) {
 							failedSelectors.push(`${sel} -> ${e.message}`);
 							return false;
 						}
