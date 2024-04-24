@@ -8,7 +8,8 @@
 		"inline css",
 		"critical",
 		"critters",
-		"performance"
+		"performance",
+		"playform"
 	],
 	"homepage": "HTTPS://GitHub.Com/Playform/Critters#readme",
 	"bugs": {
@@ -20,7 +21,7 @@
 	},
 	"license": "Apache-2.0",
 	"author": {
-		"name": "Source/Open",
+		"name": "⛲ Source ⁄ 🚪 Open —",
 		"email": "Source/Open@Playform.Cloud",
 		"url": "HTTPS://Playform.Cloud"
 	},
