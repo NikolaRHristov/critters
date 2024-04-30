@@ -2,7 +2,7 @@
 	"name": "@playform/critters",
 	"version": "0.0.1",
 	"private": false,
-	"description": "🦔 Critters —",
+	"description": "🦔 — Critters —",
 	"keywords": [
 		"critical css",
 		"inline css",
@@ -21,7 +21,7 @@
 	},
 	"license": "Apache-2.0",
 	"author": {
-		"name": "⛲ Source ⁄ 🚪 Open —",
+		"name": "⛲ Source ⁄ 🚪 — Open —",
 		"email": "Source/Open@PlayForm.Cloud",
 		"url": "HTTPS://PlayForm.Cloud"
 	},
