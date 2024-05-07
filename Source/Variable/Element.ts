@@ -57,6 +57,7 @@ export default {
 		if (value == null) {
 			value = "";
 		}
+
 		this.attribs[name] = value;
 	},
 
