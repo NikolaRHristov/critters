@@ -10,4 +10,4 @@ export default interface Interface {
     Error?: Message;
     Silent?: Message;
 }
-import type Message from "@Interface/Message.js";
+import type Message from "../Interface/Message.js";

@@ -18,4 +18,4 @@ export default interface Interface {
     reduceInlineStyles?: boolean;
     logger?: Logger;
 }
-import type Logger from "@Interface/Logger.js";
+import type Logger from "../Interface/Logger.js";

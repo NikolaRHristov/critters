@@ -7,7 +7,6 @@
  * @private
  */
 declare const _default: {
-    /** @extends treeAdapter.Document.prototype */
     nodeType: {
         get(): number;
     };

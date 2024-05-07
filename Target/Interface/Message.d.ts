@@ -5,4 +5,4 @@
 export default interface Interface {
     (Message: Message): void;
 }
-import type Message from "@Type/Message.js";
+import type Message from "../Type/Message.js";
