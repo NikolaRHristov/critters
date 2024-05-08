@@ -21,7 +21,7 @@
 	},
 	"license": "Apache-2.0",
 	"author": {
-		"name": "⛲ Source ⁄ 🚪 Open —",
+		"name": "🖋️ Source — 👐🏻 Open —",
 		"email": "Source/Open@PlayForm.Cloud",
 		"url": "HTTPS://PlayForm.Cloud"
 	},
@@ -42,7 +42,7 @@
 		"pretty-bytes": "6.1.1"
 	},
 	"devDependencies": {
-		"@playform/build": "0.0.7",
+		"@playform/build": "0.0.8",
 		"@playform/document": "0.0.6",
 		"jsdom": "24.0.0"
 	},
