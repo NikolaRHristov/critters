@@ -9,7 +9,7 @@
  * @param {String} html   HTML to parse into a Document instance
  */
 export function createDocument(html) {
-	const document =  parseDocument(html, {
+	const document = parseDocument(html, {
 		decodeEntities: false,
 	});
 

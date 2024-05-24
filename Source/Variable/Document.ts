@@ -8,8 +8,6 @@
  * @private
  */
 export default {
-	
-
 	// document is just an Element in htmlparser2, giving it a nodeType of ELEMENT_NODE.
 	// TODO: verify if these are needed for css-select
 	nodeType: {
