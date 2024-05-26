@@ -26,7 +26,7 @@ export const _Function = async (Node, Node2, iterator) => {
 			rule._other = rule2;
 			rule.filterSelectors = filterSelectors;
 			return iterator(rule) !== false;
-		}
+		},
 	);
 };
 

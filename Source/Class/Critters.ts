@@ -99,7 +99,7 @@ export default class Critters {
 				additionalStylesheets: [],
 				allowRules: [],
 			},
-			options || {}
+			options || {},
 		);
 
 		this.urlFilter = this.options.filter;
@@ -148,13 +148,13 @@ export default class Critters {
 		// `external:false` skips processing of external sheets
 		if (this.options.external !== false) {
 			const externalSheets = [].slice.call(
-				document.querySelectorAll('link[rel="stylesheet"]')
+				document.querySelectorAll('link[rel="stylesheet"]'),
 			);
 
 			await Promise.all(
 				externalSheets.map((link) =>
-					this.embedLinkedStylesheet(link, document)
-				)
+					this.embedLinkedStylesheet(link, document),
+				),
 			);
 		}
 
@@ -162,7 +162,7 @@ export default class Critters {
 		const styles = this.getAffectedStyleTags(document);
 
 		await Promise.all(
-			styles.map((style) => this.processStyle(style, document))
+			styles.map((style) => this.processStyle(style, document)),
 		);
 
 		if (this.options.mergeStylesheets !== false && styles.length !== 0) {
@@ -193,7 +193,7 @@ export default class Critters {
 		const styles = this.getAffectedStyleTags(document);
 		if (styles.length === 0) {
 			this.logger.warn(
-				"Merging inline stylesheets into a single <style> tag skipped, no inline stylesheets to merge"
+				"Merging inline stylesheets into a single <style> tag skipped, no inline stylesheets to merge",
 			);
 			return;
 		}
@@ -252,7 +252,7 @@ export default class Critters {
 			const href = style.$$name;
 			style.$$reduce = false;
 			this.logger.info(
-				`\u001b[32mInlined all of ${href} (${sheet.length} was below the threshold of ${this.options.inlineThreshold})\u001b[39m`
+				`\u001b[32mInlined all of ${href} (${sheet.length} was below the threshold of ${this.options.inlineThreshold})\u001b[39m`,
 			);
 			link.remove();
 			return true;
@@ -279,7 +279,7 @@ export default class Critters {
 					sheet,
 					style,
 				]);
-			})
+			}),
 		);
 
 		sources.forEach(([sheet, style]) => {
@@ -334,7 +334,7 @@ export default class Critters {
 		if (lazy) {
 			cssLoaderPreamble = cssLoaderPreamble.replace(
 				"l.href",
-				"l.media='print';l.onload=function(){l.media=m};l.href"
+				"l.media='print';l.onload=function(){l.media=m};l.href",
 			);
 		}
 
@@ -353,7 +353,7 @@ export default class Critters {
 			if (preloadMode === "js" || preloadMode === "js-lazy") {
 				const script = document.createElement("script");
 				const js = `${cssLoaderPreamble}$loadcss(${JSON.stringify(
-					href
+					href,
 				)}${lazy ? `,${JSON.stringify(media || "all")}` : ""})`;
 				// script.appendChild(document.createTextNode(js));
 				script.textContent = js;
@@ -374,7 +374,7 @@ export default class Critters {
 				link.setAttribute("title", "styles");
 				link.setAttribute(
 					"onload",
-					`this.title='';this.rel='stylesheet'`
+					`this.title='';this.rel='stylesheet'`,
 				);
 				noscriptFallback = true;
 			} else if (preloadMode === "swap") {
@@ -415,7 +415,7 @@ export default class Critters {
 		const name = style.$$name;
 		if (minSize && sheetInverse.length < minSize) {
 			this.logger.info(
-				`\u001b[32mInlined all of ${name} (non-critical external stylesheet would have been ${sheetInverse.length}b, which was below the threshold of ${minSize})\u001b[39m`
+				`\u001b[32mInlined all of ${name} (non-critical external stylesheet would have been ${sheetInverse.length}b, which was below the threshold of ${minSize})\u001b[39m`,
 			);
 			style.textContent = before;
 			// remove any associated external resources/loaders:
@@ -625,7 +625,7 @@ export default class Critters {
 				// If there are no remaining rules, remove the whole rule:
 				const rules = rule.nodes?.filter((rule) => !rule.$$remove);
 				return !rules || rules.length !== 0;
-			})
+			}),
 		);
 
 		if (failedSelectors.length !== 0) {
@@ -633,8 +633,8 @@ export default class Critters {
 				`${
 					failedSelectors.length
 				} rules skipped due to selector errors:\n  ${failedSelectors.join(
-					"\n  "
-				)}`
+					"\n  ",
+				)}`,
 			);
 		}
 
@@ -673,7 +673,7 @@ export default class Critters {
 					if (decl.prop === "src") {
 						// @todo parse this properly and generate multiple preloads with type="font/woff2" etc
 						src = (decl.value.match(
-							/url\s*\(\s*(['"]?)(.+?)\1\s*\)/
+							/url\s*\(\s*(['"]?)(.+?)\1\s*\)/,
 						) || [])[2];
 					} else if (decl.prop === "font-family") {
 						family = decl.value;
@@ -727,7 +727,7 @@ export default class Critters {
 			styleInlinedCompletely = this.pruneSource(
 				style,
 				before,
-				sheetInverse
+				sheetInverse,
 			);
 
 			if (styleInlinedCompletely) {
@@ -747,10 +747,10 @@ export default class Critters {
 		const percent = ((sheet.length / before.length) * 100) | 0;
 		this.logger.info(
 			`\u001b[32mInlined ${prettyBytes(
-				sheet.length
+				sheet.length,
 			)} (${percent}% of original ${prettyBytes(
-				before.length
-			)}) of ${name}${afterText}.\u001b[39m`
+				before.length,
+			)}) of ${name}${afterText}.\u001b[39m`,
 		);
 	}
 }
