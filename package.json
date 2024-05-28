@@ -43,7 +43,7 @@
 	},
 	"devDependencies": {
 		"@playform/build": "0.0.9",
-		"@playform/document": "0.0.7",
+		"@playform/document": "0.0.10",
 		"jsdom": "24.1.0"
 	},
 	"publishConfig": {
