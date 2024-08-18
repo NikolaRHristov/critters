@@ -8,7 +8,7 @@ export default (container) => {
 
 	const queue = [container];
 
-	while (queue.length) {
+	while (queue.length > 0) {
 		const node = queue.shift();
 
 		if (node.hasAttribute("class")) {

@@ -18,7 +18,7 @@ export const _Function = async (Node, Node2, iterator) => {
 	[Node.nodes, Node2.nodes] = (await import("@Function/Split.js")).default(
 		Node.nodes,
 		Node2.nodes,
-		async (rule, index, rules, rules2) => {
+		async (rule, index, _rules, rules2) => {
 			const rule2 = rules2[index];
 			if ((await import("@Function/Nested.js")).default(rule)) {
 				_Function(rule, rule2, iterator);

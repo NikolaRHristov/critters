@@ -165,7 +165,7 @@ export default class Critters {
 			styles.map((style) => this.processStyle(style, document)),
 		);
 
-		if (this.options.mergeStylesheets !== false && styles.length !== 0) {
+		if (this.options.mergeStylesheets !== false && styles.length > 0) {
 			await this.mergeStylesheets(document);
 		}
 
@@ -624,11 +624,11 @@ export default class Critters {
 
 				// If there are no remaining rules, remove the whole rule:
 				const rules = rule.nodes?.filter((rule) => !rule.$$remove);
-				return !rules || rules.length !== 0;
+				return !rules || rules.length > 0;
 			}),
 		);
 
-		if (failedSelectors.length !== 0) {
+		if (failedSelectors.length > 0) {
 			this.logger.warn(
 				`${
 					failedSelectors.length
