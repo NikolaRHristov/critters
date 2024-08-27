@@ -29,7 +29,7 @@ Applications.
 -   Prunes unused CSS keyframes and media queries
 -   Removes inlined CSS rules from lazy-loaded stylesheets
 
-## Installation
+## 🚀 Installation
 
 First, install Critters as a development dependency:
 
