@@ -42,7 +42,7 @@
 		"pretty-bytes": "6.1.1"
 	},
 	"devDependencies": {
-		"@playform/build": "0.1.4",
+		"@playform/build": "0.1.6",
 		"jsdom": "25.0.0"
 	},
 	"publishConfig": {
