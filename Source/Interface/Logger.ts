@@ -1,3 +1,5 @@
+import type Message from "../Interface/Message.js";
+
 /**
  * @module Utility
  *
@@ -15,5 +17,3 @@ export default interface Interface {
 
 	Silent?: Message;
 }
-
-import type Message from "../Interface/Message.js";

@@ -1,3 +1,5 @@
+import type Interface from "../Interface/Logger.js";
+
 /**
  * @module Utility
  *
@@ -25,7 +27,5 @@ export default {
 
 	Silent: () => ({}),
 } satisfies Interface as Interface;
-
-import type Interface from "../Interface/Logger.js";
 
 export const { default: chalk } = await import("chalk");

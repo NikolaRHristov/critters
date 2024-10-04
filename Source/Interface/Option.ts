@@ -1,3 +1,5 @@
+import type Logger from "../Interface/Logger.js";
+
 export default interface Interface {
 	path?: string;
 
@@ -35,5 +37,3 @@ export default interface Interface {
 
 	logger?: Logger;
 }
-
-import type Logger from "../Interface/Logger.js";
