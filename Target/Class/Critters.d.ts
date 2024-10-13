@@ -82,39 +82,39 @@
  * @property {object} logger        Provide a custom logger interface {@link Logger logger}
  */
 export default class Critters {
-    constructor(options: any);
-    /**
-     * Read the contents of a file from the specified filesystem or disk
-     */
-    readFile(filename: any): Promise<unknown>;
-    /**
-     * Apply critical CSS processing to the html
-     */
-    process(html: any): Promise<any>;
-    /**
-     * Get the style tags that need processing
-     */
-    getAffectedStyleTags(document: any): never[];
-    mergeStylesheets(document: any): Promise<void>;
-    /**
-     * Given href, find the corresponding CSS asset
-     */
-    getCssAsset(href: any): Promise<unknown>;
-    checkInlineThreshold(link: any, style: any, sheet: any): boolean;
-    /**
-     * Inline the stylesheets from options.additionalStylesheets (assuming it passes `options.filter`)
-     */
-    embedAdditionalStylesheet(document: any): Promise<void>;
-    /**
-     * Inline the target stylesheet referred to by a <link rel="stylesheet"> (assuming it passes `options.filter`)
-     */
-    embedLinkedStylesheet(link: any, document: any): Promise<void>;
-    /**
-     * Prune the source CSS files
-     */
-    pruneSource(style: any, before: any, sheetInverse: any): boolean;
-    /**
-     * Parse the stylesheet within a <style> element, then reduce it to contain only rules used by the document.
-     */
-    processStyle(style: any, document: any): Promise<void>;
+	constructor(options: any);
+	/**
+	 * Read the contents of a file from the specified filesystem or disk
+	 */
+	readFile(filename: any): Promise<unknown>;
+	/**
+	 * Apply critical CSS processing to the html
+	 */
+	process(html: any): Promise<any>;
+	/**
+	 * Get the style tags that need processing
+	 */
+	getAffectedStyleTags(document: any): never[];
+	mergeStylesheets(document: any): Promise<void>;
+	/**
+	 * Given href, find the corresponding CSS asset
+	 */
+	getCssAsset(href: any): Promise<unknown>;
+	checkInlineThreshold(link: any, style: any, sheet: any): boolean;
+	/**
+	 * Inline the stylesheets from options.additionalStylesheets (assuming it passes `options.filter`)
+	 */
+	embedAdditionalStylesheet(document: any): Promise<void>;
+	/**
+	 * Inline the target stylesheet referred to by a <link rel="stylesheet"> (assuming it passes `options.filter`)
+	 */
+	embedLinkedStylesheet(link: any, document: any): Promise<void>;
+	/**
+	 * Prune the source CSS files
+	 */
+	pruneSource(style: any, before: any, sheetInverse: any): boolean;
+	/**
+	 * Parse the stylesheet within a <style> element, then reduce it to contain only rules used by the document.
+	 */
+	processStyle(style: any, document: any): Promise<void>;
 }

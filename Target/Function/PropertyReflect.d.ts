@@ -7,7 +7,7 @@
  * @private
  */
 declare const _default: (Attribute: any) => {
-    get(): any;
-    set(value: any): void;
+	get(): any;
+	set(value: any): void;
 };
 export default _default;
