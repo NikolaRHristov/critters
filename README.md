@@ -8,17 +8,17 @@
 
 ## @playform/critters [![npm](https://img.shields.io/npm/v/@playform/critters.svg)](https://www.npmjs.org/package/@playform/critters)
 
-It's a little different from [other options](#similar-libraries), because it
+It's a little different from [`other options`](#similar-libraries), because it
 **doesn't use a headless browser** to render content. This tradeoff allows
 Critters to be very **fast and lightweight**. It also means Critters inlines all
 CSS rules used by your document, rather than only those needed for
 above-the-fold content. For alternatives, see
-[Similar Libraries](#similar-libraries).
+[`Similar Libraries`](#similar-libraries).
 
 Critters' design makes it a good fit when inlining critical CSS for
 prerendered/SSR'd Single Page Applications. It was developed to be an excellent
 compliment to
-[prerender-loader](https://github.com/GoogleChromeLabs/prerender-loader),
+[`prerender-loader`](https://github.com/GoogleChromeLabs/prerender-loader),
 combining to dramatically improve first paint time for most Single Page
 Applications.
 
@@ -80,75 +80,75 @@ All optional. Pass them to `new Critters({ ... })`.
 #### Properties
 
 -   `path`
-    **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+    **[`String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
     Base path location of the CSS files _(default: `''`)_
 -   `publicPath`
-    **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+    **[`String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
     Public path of the CSS resources. This prefix is removed from the href
     _(default: `''`)_
 -   `external`
-    **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
+    **[`Boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
     Inline styles from external stylesheets _(default: `true`)_
 -   `inlineThreshold`
-    **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
+    **[`Number`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
     Inline external stylesheets smaller than a given size _(default: `0`)_
 -   `minimumExternalSize`
-    **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
+    **[`Number`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
     If the non-critical external stylesheet would be below this size, just
     inline it _(default: `0`)_
 -   `pruneSource`
-    **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
+    **[`Boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
     Remove inlined rules from the external stylesheet _(default: `false`)_
 -   `mergeStylesheets`
-    **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
+    **[`Boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
     Merged inlined stylesheets into a single `<style>` tag _(default: `true`)_
 -   `additionalStylesheets`
-    **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
+    **[`Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
     Glob for matching other stylesheets to be used while looking for critical
     CSS.
 -   `reduceInlineStyles`
-    **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
+    **[`Boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
     Option indicates if inline styles should be evaluated for critical CSS. By
     default inline style tags will be evaluated and rewritten to only contain
     critical CSS. Set it to `false` to skip processing inline styles. _(default:
     `true`)_
 -   `preload`
-    **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-    Which [preload strategy](#preloadstrategy) to use
+    **[`String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+    Which [`preload strategy`](#preloadstrategy) to use
 -   `noscriptFallback`
-    **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
+    **[`Boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
     Add `<noscript>` fallback to JS-based strategies
 -   `inlineFonts`
-    **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
+    **[`Boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
     Inline critical font-face rules _(default: `false`)_
 -   `preloadFonts`
-    **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
+    **[`Boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
     Preloads critical fonts _(default: `true`)_
 -   `fonts`
-    **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
+    **[`Boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
     Shorthand for setting `inlineFonts` + `preloadFonts`\* Values:
     -   `true` to inline critical font-face rules and preload the fonts
     -   `false` to don't inline any font-face rules and don't preload fonts
 -   `keyframes`
-    **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+    **[`String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
     Controls which keyframes rules are inlined.\* Values:
     -   `"critical"`: _(default)_ inline keyframes rules used by the critical
         CSS
     -   `"all"` inline all keyframes rules
     -   `"none"` remove all keyframes rules
 -   `compress`
-    **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
+    **[`Boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
     Compress resulting critical CSS _(default: `true`)_
 -   `logLevel`
-    **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-    Controls [log level](#loglevel) of the plugin _(default: `"info"`)_
+    **[`String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+    Controls [`log level`](#loglevel) of the plugin _(default: `"info"`)_
 -   `logger`
-    **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
-    Provide a custom logger interface [logger](#logger)
+    **[`object`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
+    Provide a custom logger interface [`logger`](#logger)
 -   `includeSelectors`
-    **[RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)**
+    **[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)**
     |
-    **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+    **[`String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
     Provide a list of selectors that should be included in the critical CSS.
     Accepts both RegExp and string.
 
@@ -252,24 +252,24 @@ _Note: This is an easy way to improve the performance of Critters_
 Custom logger interface:
 
 Type:
-[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
+[`object`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
 #### Properties
 
 -   `trace` **function
-    ([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
+    ([`String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
     Prints a trace message
 -   `debug` **function
-    ([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
+    ([`String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
     Prints a debug message
 -   `info` **function
-    ([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
+    ([`String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
     Prints an information message
 -   `warn` **function
-    ([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
+    ([`String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
     Prints a warning message
 -   `error` **function
-    ([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
+    ([`String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
     Prints an error message
 
 ### LogLevel
@@ -301,14 +301,14 @@ Note: <kbd>JS</kbd> indicates a strategy requiring JavaScript (falls back to
     removing once loaded. <kbd>JS</kbd>
 -   **"swap":** Convert stylesheet links to preloads that swap to
     `rel="stylesheet"` once loaded
-    ([details](https://www.filamentgroup.com/lab/load-css-simpler/#the-code)).
+    ([`details`](https://www.filamentgroup.com/lab/load-css-simpler/#the-code)).
     <kbd>JS</kbd>
 -   **"swap-high":** Use `<link rel="alternate stylesheet preload">` and swap to
     `rel="stylesheet"` once loaded
-    ([details](http://filamentgroup.github.io/loadCSS/test/new-high.html)).
+    ([`details`](http://filamentgroup.github.io/loadCSS/test/new-high.html)).
     <kbd>JS</kbd>
 -   **"js":** Inject an asynchronous CSS loader similar to
-    [LoadCSS](https://github.com/filamentgroup/loadCSS) and use it to load
+    [`LoadCSS`](https://github.com/filamentgroup/loadCSS) and use it to load
     stylesheets. <kbd>JS</kbd>
 -   **"js-lazy":** Like `"js"`, but the stylesheet is disabled until fully
     loaded.
@@ -322,13 +322,13 @@ Type: (default | `"body"` | `"media"` | `"swap"` | `"swap-high"` | `"js"` |
 There are a number of other libraries that can inline Critical CSS, each with a
 slightly different approach. Here are a few great options:
 
--   [Critical](https://github.com/addyosmani/critical)
--   [Penthouse](https://github.com/pocketjoso/penthouse)
--   [react-snap](https://github.com/stereobooster/react-snap)
+-   [`Critical`](https://github.com/addyosmani/critical)
+-   [`Penthouse`](https://github.com/pocketjoso/penthouse)
+-   [`react-snap`](https://github.com/stereobooster/react-snap)
 
 [critical css]:
 	https://www.smashingmagazine.com/2015/08/understanding-critical-css/
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for a history of changes to this integration.
+See [`CHANGELOG.md`](CHANGELOG.md) for a history of changes to this integration.
