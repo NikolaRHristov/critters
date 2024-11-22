@@ -20,11 +20,13 @@ export const _Function = async (Node, Node2, iterator) => {
 		Node2.nodes,
 		async (rule, index, _rules, rules2) => {
 			const rule2 = rules2[index];
+
 			if ((await import("@Function/Nested.js")).default(rule)) {
 				_Function(rule, rule2, iterator);
 			}
 			rule._other = rule2;
 			rule.filterSelectors = filterSelectors;
+
 			return iterator(rule) !== false;
 		},
 	);

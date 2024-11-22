@@ -16,6 +16,7 @@ export const _Function = (node, iterator) => {
 		}
 		rule._other = undefined;
 		rule.filterSelectors = filterSelectors;
+
 		return iterator(rule) !== false;
 	});
 };

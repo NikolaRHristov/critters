@@ -16,6 +16,7 @@ export default (AST, Option) => {
 	stringify(AST, (result, node, type) => {
 		if (!Option.compress) {
 			cssStr += result;
+
 			return;
 		}
 
@@ -28,6 +29,7 @@ export default (AST, Option) => {
 			const prefix = node.prop + node.raws.between;
 
 			cssStr += result.replace(prefix, prefix.trim());
+
 			return;
 		}
 

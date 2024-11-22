@@ -103,6 +103,7 @@ export default class Critters {
 		);
 
 		this.urlFilter = this.options.filter;
+
 		if (this.urlFilter instanceof RegExp) {
 			this.urlFilter = this.urlFilter.test.bind(this.urlFilter);
 		}
@@ -116,6 +117,7 @@ export default class Critters {
 	 */
 	readFile(filename) {
 		const fs = this.fs;
+
 		return new Promise((resolve, reject) => {
 			const callback = (err, data) => {
 				if (err) {
@@ -124,6 +126,7 @@ export default class Critters {
 					resolve(data);
 				}
 			};
+
 			if (fs?.readFile) {
 				fs.readFile(filename, callback);
 			} else {
@@ -171,8 +174,10 @@ export default class Critters {
 
 		// serialize the document back to HTML and we're done
 		const output = serializeDocument(document);
+
 		const end = process.hrtime.bigint();
 		this.logger.info(`Time ${Number.parseFloat(end - start) / 1000000.0}`);
+
 		return output;
 	}
 
@@ -191,13 +196,16 @@ export default class Critters {
 
 	async mergeStylesheets(document) {
 		const styles = this.getAffectedStyleTags(document);
+
 		if (styles.length === 0) {
 			this.logger.warn(
 				"Merging inline stylesheets into a single <style> tag skipped, no inline stylesheets to merge",
 			);
+
 			return;
 		}
 		const first = styles[0];
+
 		let sheet = first.textContent;
 
 		for (let i = 1; i < styles.length; i++) {
@@ -214,12 +222,15 @@ export default class Critters {
 	 */
 	async getCssAsset(href) {
 		const outputPath = this.options.path;
+
 		const publicPath = this.options.publicPath;
 
 		// CHECK - the output path
 		// path on disk (with output.publicPath removed)
 		let normalizedPath = href.replace(/^\//, "");
+
 		const pathPrefix = `${(publicPath || "").replace(/(^\/|\/$)/g, "")}/`;
+
 		if (normalizedPath.indexOf(pathPrefix) === 0) {
 			normalizedPath = normalizedPath
 				.substring(pathPrefix.length)
@@ -255,6 +266,7 @@ export default class Critters {
 				`\u001b[32mInlined all of ${href} (${sheet.length} was below the threshold of ${this.options.inlineThreshold})\u001b[39m`,
 			);
 			link.remove();
+
 			return true;
 		}
 
@@ -273,8 +285,10 @@ export default class Critters {
 					return;
 				}
 				styleSheetsIncluded.push(cssFile);
+
 				const style = document.createElement("style");
 				style.$$external = true;
+
 				return this.getCssAsset(cssFile, style).then((sheet) => [
 					sheet,
 					style,
@@ -287,6 +301,7 @@ export default class Critters {
 				return;
 			}
 			style.textContent = sheet;
+
 			document.head.appendChild(style);
 		});
 	}
@@ -296,6 +311,7 @@ export default class Critters {
 	 */
 	async embedLinkedStylesheet(link, document) {
 		const href = link.getAttribute("href");
+
 		const media = link.getAttribute("media");
 
 		const preloadMode = this.options.preload;
@@ -312,6 +328,7 @@ export default class Critters {
 		// the reduced critical CSS gets injected into a new <style> tag
 		const style = document.createElement("style");
 		style.$$external = true;
+
 		const sheet = await this.getCssAsset(href, style);
 
 		if (!sheet) {
@@ -330,7 +347,9 @@ export default class Critters {
 		// CSS loader is only injected for the first sheet, then this becomes an empty string
 		let cssLoaderPreamble =
 			"function $loadcss(u,m,l){(l=document.createElement('link')).rel='stylesheet';l.href=u;document.head.appendChild(l)}";
+
 		const lazy = preloadMode === "js-lazy";
+
 		if (lazy) {
 			cssLoaderPreamble = cssLoaderPreamble.replace(
 				"l.href",
@@ -350,8 +369,10 @@ export default class Critters {
 		} else {
 			link.setAttribute("rel", "preload");
 			link.setAttribute("as", "style");
+
 			if (preloadMode === "js" || preloadMode === "js-lazy") {
 				const script = document.createElement("script");
+
 				const js = `${cssLoaderPreamble}$loadcss(${JSON.stringify(
 					href,
 				)}${lazy ? `,${JSON.stringify(media || "all")}` : ""})`;
@@ -383,10 +404,12 @@ export default class Critters {
 			} else {
 				const bodyLink = document.createElement("link");
 				bodyLink.setAttribute("rel", "stylesheet");
+
 				if (media) {
 					bodyLink.setAttribute("media", media);
 				}
 				bodyLink.setAttribute("href", href);
+
 				document.body.appendChild(bodyLink);
 				style.$$links.push(bodyLink);
 			}
@@ -394,9 +417,11 @@ export default class Critters {
 
 		if (this.options.noscriptFallback !== false && noscriptFallback) {
 			const noscript = document.createElement("noscript");
+
 			const noscriptLink = document.createElement("link");
 			noscriptLink.setAttribute("rel", "stylesheet");
 			noscriptLink.setAttribute("href", href);
+
 			if (media) {
 				noscriptLink.setAttribute("media", media);
 			}
@@ -412,7 +437,9 @@ export default class Critters {
 	pruneSource(style, before, sheetInverse) {
 		// if external stylesheet would be below minimum size, just inline everything
 		const minSize = this.options.minimumExternalSize;
+
 		const name = style.$$name;
+
 		if (minSize && sheetInverse.length < minSize) {
 			this.logger.info(
 				`\u001b[32mInlined all of ${name} (non-critical external stylesheet would have been ${sheetInverse.length}b, which was below the threshold of ${minSize})\u001b[39m`,
@@ -422,6 +449,7 @@ export default class Critters {
 			if (style.$$links) {
 				for (const link of style.$$links) {
 					const parent = link.parentNode;
+
 					if (parent) {
 						parent.removeChild(link);
 					}
@@ -445,8 +473,11 @@ export default class Critters {
 		const name = style.$$name
 			? style.$$name.replace(/^\//, "")
 			: "inline CSS";
+
 		const options = this.options;
+
 		const crittersContainer = document.crittersContainer;
+
 		let keyframesMode = options.keyframes || "critical";
 		// we also accept a boolean value for options.keyframes
 		if (keyframesMode === true) {
@@ -467,6 +498,7 @@ export default class Critters {
 		}
 
 		const ast = parseStylesheet(sheet);
+
 		const astInverse = options.pruneSource ? parseStylesheet(sheet) : null;
 
 		// a string to search for font names (very loose)
@@ -477,8 +509,11 @@ export default class Critters {
 		const criticalKeyframeNames = [];
 
 		let includeNext = false;
+
 		let includeAll = false;
+
 		let excludeNext = false;
+
 		let excludeAll = false;
 
 		// Walk all CSS rules, marking unused rules with `.$$remove=true` for removal in the second pass.
@@ -491,29 +526,36 @@ export default class Critters {
 
 					if (comment.startsWith("critters")) {
 						const command = comment.replace(/^critters:/, "");
+
 						switch (command) {
 							case "include": {
 								includeNext = true;
+
 								break;
 							}
 							case "exclude": {
 								excludeNext = true;
+
 								break;
 							}
 							case "include start": {
 								includeAll = true;
+
 								break;
 							}
 							case "include end": {
 								includeAll = false;
+
 								break;
 							}
 							case "exclude start": {
 								excludeAll = true;
+
 								break;
 							}
 							case "exclude end": {
 								excludeAll = false;
+
 								break;
 							}
 						}
@@ -524,11 +566,13 @@ export default class Critters {
 					// Handle comment based markers
 					if (includeNext) {
 						includeNext = false;
+
 						return true;
 					}
 
 					if (excludeNext) {
 						excludeNext = false;
+
 						return false;
 					}
 
@@ -581,6 +625,7 @@ export default class Critters {
 							return crittersContainer.exists(sel);
 						} catch (_Error) {
 							failedSelectors.push(`${sel} -> ${e.message}`);
+
 							return false;
 						}
 					});
@@ -606,8 +651,10 @@ export default class Critters {
 							) {
 								// @todo: parse animation declarations and extract only the name. for now we'll do a lazy match.
 								const names = decl.value.split(/\s+/);
+
 								for (let j = 0; j < names.length; j++) {
 									const name = names[j].trim();
+
 									if (name) {
 										criticalKeyframeNames.push(name);
 									}
@@ -624,6 +671,7 @@ export default class Critters {
 
 				// If there are no remaining rules, remove the whole rule:
 				const rules = rule.nodes?.filter((rule) => !rule.$$remove);
+
 				return !rules || rules.length > 0;
 			}),
 		);
@@ -640,6 +688,7 @@ export default class Critters {
 
 		const shouldPreloadFonts =
 			options.fonts === true || options.preloadFonts === true;
+
 		const shouldInlineFonts =
 			options.fonts !== false && options.inlineFonts === true;
 
@@ -667,9 +716,12 @@ export default class Critters {
 			// prune @font-face rules
 			if (rule.type === "atrule" && rule.name === "font-face") {
 				let family;
+
 				let src;
+
 				for (let i = 0; i < rule.nodes.length; i++) {
 					const decl = rule.nodes[i];
+
 					if (decl.prop === "src") {
 						// @todo parse this properly and generate multiple preloads with type="font/woff2" etc
 						src = (decl.value.match(
@@ -686,11 +738,13 @@ export default class Critters {
 					preloadedFonts.indexOf(src) === -1
 				) {
 					preloadedFonts.push(src);
+
 					const preload = document.createElement("link");
 					preload.setAttribute("rel", "preload");
 					preload.setAttribute("as", "font");
 					preload.setAttribute("crossorigin", "anonymous");
 					preload.setAttribute("href", src.trim());
+
 					document.head.appendChild(preload);
 				}
 
@@ -718,7 +772,9 @@ export default class Critters {
 		}
 
 		let afterText = "";
+
 		let styleInlinedCompletely = false;
+
 		if (options.pruneSource) {
 			const sheetInverse = serializeStylesheet(astInverse, {
 				compress: this.options.compress !== false,

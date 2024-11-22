@@ -12,10 +12,12 @@
  */
 export default (predicate) => (rule) => {
 	const sel = rule.selectors;
+
 	if (predicate(rule) === false) {
 		rule.$$remove = true;
 	}
 	rule.$$markedSelectors = rule.selectors;
+
 	if (rule._other) {
 		rule._other.$$markedSelectors = rule._other.selectors;
 	}

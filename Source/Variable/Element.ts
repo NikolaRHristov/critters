@@ -23,11 +23,13 @@ export default {
 			return this.appendChild(child);
 		}
 		DomUtils.prepend(referenceNode, child);
+
 		return child;
 	},
 
 	appendChild(child) {
 		DomUtils.appendChild(this, child);
+
 		return child;
 	},
 
@@ -77,6 +79,7 @@ export default {
 
 	getAttributeNode(name) {
 		const value = this.getAttribute(name);
+
 		if (value != null) {
 			return { specified: true, value };
 		}

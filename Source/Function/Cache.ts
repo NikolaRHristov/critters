@@ -13,6 +13,7 @@ export default (container) => {
 
 		if (node.hasAttribute("class")) {
 			const classList = node.getAttribute("class").trim().split(" ");
+
 			classList.forEach((cls) => {
 				classCache.add(cls);
 			});
