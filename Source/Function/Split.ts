@@ -17,5 +17,6 @@ export default async (a, b, Predicate) => {
 			bOut.push(a[index]);
 		}
 	}
+
 	return [aOut, bOut];
 };

@@ -13,10 +13,12 @@ export default (sel, node) => {
 			if (token.type === "attribute" && token.name === "class") {
 				return classCache.has(token.value);
 			}
+
 			if (token.type === "attribute" && token.name === "id") {
 				return idCache.has(token.value);
 			}
 		}
 	}
+
 	return !!selectOne(sel, node);
 };

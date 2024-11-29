@@ -39,6 +39,7 @@ export default (AST, Option) => {
 			} else {
 				cssStr += result.replace(/\s\{$/, "{");
 			}
+
 			return;
 		}
 

@@ -11,6 +11,7 @@ export default (logLevel) => {
 		} else {
 			logger[type] = defaultLogger.silent;
 		}
+
 		return logger;
 	}, {});
 };

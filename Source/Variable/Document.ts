@@ -70,6 +70,7 @@ export default {
 		if (sel === ":root") {
 			return this;
 		}
+
 		return selectAll(sel, this);
 	},
 };

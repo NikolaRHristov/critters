@@ -7,6 +7,7 @@ export default (Rule) => {
 	if (Rule.$$markedSelectors) {
 		Rule.selectors = Rule.$$markedSelectors;
 	}
+
 	if (Rule._other) {
 		applyMarkedSelectors(Rule._other);
 	}
