@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="HTTPS://raw.githubusercontent.com/PlayForm/Critters/main/.github/Logo.png" width="240" height="240" alt="critters">
+  <img src="https://raw.githubusercontent.com/PlayForm/Critters/main/.github/Logo.png" width="240" height="240" alt="critters">
   <h1 align="center">PlayForm's Critters</h1>
 </p>
 
