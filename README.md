@@ -18,7 +18,7 @@ above-the-fold content. For alternatives, see
 Critters' design makes it a good fit when inlining critical CSS for
 prerendered/SSR'd Single Page Applications. It was developed to be an excellent
 compliment to
-[`prerender-loader`](https://github.com/GoogleChromeLabs/prerender-loader),
+[`prerender-loader`](HTTPS://GitHub.Com/GoogleChromeLabs/prerender-loader),
 combining to dramatically improve first paint time for most Single Page
 Applications.
 
@@ -308,7 +308,7 @@ Note: <kbd>JS</kbd> indicates a strategy requiring JavaScript (falls back to
     ([`details`](HTTP://filamentgroup.github.io/loadCSS/test/new-high.html)).
     <kbd>JS</kbd>
 -   **"js":** Inject an asynchronous CSS loader similar to
-    [`LoadCSS`](https://github.com/filamentgroup/loadCSS) and use it to load
+    [`LoadCSS`](HTTPS://GitHub.Com/filamentgroup/loadCSS) and use it to load
     stylesheets. <kbd>JS</kbd>
 -   **"js-lazy":** Like `"js"`, but the stylesheet is disabled until fully
     loaded.
@@ -322,9 +322,9 @@ Type: (default | `"body"` | `"media"` | `"swap"` | `"swap-high"` | `"js"` |
 There are a number of other libraries that can inline Critical CSS, each with a
 slightly different approach. Here are a few great options:
 
--   [`Critical`](https://github.com/addyosmani/critical)
--   [`Penthouse`](https://github.com/pocketjoso/penthouse)
--   [`react-snap`](https://github.com/stereobooster/react-snap)
+-   [`Critical`](HTTPS://GitHub.Com/addyosmani/critical)
+-   [`Penthouse`](HTTPS://GitHub.Com/pocketjoso/penthouse)
+-   [`react-snap`](HTTPS://GitHub.Com/stereobooster/react-snap)
 
 [critical css]:
 	HTTPS://www.smashingmagazine.com/2015/08/understanding-critical-css/
