@@ -22,7 +22,7 @@ compliment to
 combining to dramatically improve first paint time for most Single Page
 Applications.
 
-## Features
+## Feature
 
 -   Fast - no browser, few dependencies
 -   Supports preloading and/or inlining critical fonts
